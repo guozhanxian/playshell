@@ -14,5 +14,5 @@
 ----
 # Docker Image列表
 1. [ELK，ElasticSearch Logstash Kibana](./docker_elk/readme.md)
-2. [android-avd](./docker_android_avd/readme.md)
+2. [android-avd](./docker_android-avd/readme.md)
 3. [nginx-rtmp](./docker_nginx_rtmp/readme.md)
