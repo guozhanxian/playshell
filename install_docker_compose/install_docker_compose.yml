@@ -1,0 +1,4 @@
+---
+- hosts: myser
+  roles:
+  - install_docker_compose

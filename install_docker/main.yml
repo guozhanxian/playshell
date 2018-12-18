@@ -1,0 +1,24 @@
+- name: setup yum-utils
+  yum: name=yum-utils state=present
+- name: setup device-mapper-persistent-data
+  yum: name=device-mapper-persistent-data state=present
+- name: setup lvm2
+  yum: name=lvm2 state=present
+- name: setup net-tools.x86_64
+  yum: name=net-tools.x86_64 state=present
+- name: setup bridge-utils
+  yum: name=bridge-utils state=present
+- name: cp docker.repo
+  copy:
+    src: "/etc/yum.repos.d/docker-ce.repo"
+    dest: "/etc/yum.repos.d/docker-ce.repo"
+- name: setup docker-ce
+  yum: name=docker-ce state=present
+- name: cp bridge file
+  copy: src=daemon.json dest=/etc/docker/
+- name: start docker
+  service: name=docker.service enabled=yes state=started
+- name: cp shell
+  template: src=setdockernet.sh dest=~/setdockernet.sh
+- name: execute shell
+  shell: sh setdockernet.sh

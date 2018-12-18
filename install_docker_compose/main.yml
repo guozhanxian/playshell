@@ -1,0 +1,4 @@
+- name: copy docker-compose-Linux-x86_64 to /usr/local/bin
+  copy: src="docker-compose-Linux-x86_64" dest="{{ docker_compose_dir }}/docker-compose-Linux-x86_64"
+- name: install docker-compose
+  shell: cd "{{ docker_compose_dir }}" && mv docker-compose-Linux-x86_64 docker-compose && chmod +x docker-compose

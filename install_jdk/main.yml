@@ -1,0 +1,14 @@
+- name: copy jdk to remote host
+  copy: src=jdk-8u191-linux-x64.tar.gz dest=~
+- name: unzip jdk
+  shell: tar -zxf jdk-8u191-linux-x64.tar.gz
+- name: creat soft link
+  shell: ln -s ~/jdk1.8.0_191 jdk
+- name: set jdk_env copy use template
+  template: src=set_jdk.sh dest=~/set_jdk.sh
+- name: execute script to set jdkenv
+  shell: sh set_jdk.sh
+- name: source bash_profile
+  shell: source ~/.bash_profile
+- name: remove files
+  shell: rm jdk-8u191-linux-x64.tar.gz set_jdk.sh
