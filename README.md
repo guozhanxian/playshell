@@ -1,5 +1,5 @@
-# 我的脚本集合文档
-- 为了使用方便，将常用脚本和docker镜像归档。
+# 会Java的蝈蝈的Blog
+---
 # Ansible安装列表
 1. 安装wget
 [wget安装脚本](./install_wget/readme.md)
@@ -16,3 +16,11 @@
 1. [ELK，ElasticSearch Logstash Kibana](./docker_elk/readme.md)
 2. [android-avd](./docker_android-avd/readme.md)
 3. [nginx-rtmp](./docker_nginx_rtmp/readme.md)
+4. [hadoop-cluster-docker](./docker_hadoop_cluster_docker/readme.md)
+5. [zookeeper](./docker_zookeeper/readme.md)
+6. [dubbo-admin](./docker_dubbo_admin/readme.md)
+---
+# 技术问题
+1. [iText根据PDF模板，灌入数据后导出](./tech_itext_export/readme.md)
+2. [关于PDF文件导出文章](https://juejin.im/entry/5ac1e7c05188257ddb0fc853)，[HTML->Canvas->PDF文件下载](https://github.com/linwalker/render-html-to-pdf)
+3. [使用dubbo大礼包开发微服务](./tech_dubbo_microservice/readme.md)
