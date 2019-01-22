@@ -21,6 +21,8 @@
 6. [dubbo-admin](./docker_dubbo_admin/readme.md)
 7. [piasy/apprtc-server，WebRTC集成环境](./docker_apprtc_server/readme.md)
 8. [graylog的docker-compose文件](./docker_graylog/readme.md)
+9. [jenkins](./docker_jenkins/readme.md)
+10. [SonarQube](./docker_sonarqube/readme.md)
 ---
 # 技术问题
 1. [iText根据PDF模板，灌入数据后导出](./tech_itext_export/readme.md)
