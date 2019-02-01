@@ -30,3 +30,6 @@
 3. [使用dubbo大礼包开发微服务](./tech_dubbo_microservice/readme.md)
 4. [微前端模式](./tech_micro_front/readme.md)
 5. [老外的学习技术网站，类似国内的实验室网站，可以学习和实验docker,k8s,Git技术等](./tech_katacoda/readme.md)
+6. [面向机器学习的特征工程](https://github.com/apachecn/feature-engineering-for-ml-zh)
+7. [Golang中unsafe.Pointer 和 uintptr指针操作](./tech_golang_unsafe_pointer/readme.md)
+8. [如何利用babel工具将es6语法转换成es5语法](https://www.jianshu.com/p/8a8f7b0f887a)。[示例代码参看，tech_es6_transform_es5文件夹](./tech_es6_transform_es5)
