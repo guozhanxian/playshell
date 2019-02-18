@@ -23,6 +23,7 @@
 8. [graylog的docker-compose文件](./docker_graylog/readme.md)
 9. [jenkins](./docker_jenkins/readme.md)
 10. [SonarQube](./docker_sonarqube/readme.md)
+11. [大数据Docker环境合集](https://github.com/big-data-europe/)
 ---
 # 技术问题
 1. [iText根据PDF模板，灌入数据后导出](./tech_itext_export/readme.md)
@@ -33,3 +34,8 @@
 6. [面向机器学习的特征工程](https://github.com/apachecn/feature-engineering-for-ml-zh)
 7. [Golang中unsafe.Pointer 和 uintptr指针操作](./tech_golang_unsafe_pointer/readme.md)
 8. [如何利用babel工具将es6语法转换成es5语法](https://www.jianshu.com/p/8a8f7b0f887a)。[示例代码参看，tech_es6_transform_es5文件夹](./tech_es6_transform_es5)
+9. [Python Web开发，Flash](https://www.jianshu.com/p/584fbff16946)
+10. [Python Web开发，Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/quickstart.html#a-minimal-api)
+11. [CentOS7下Docker开启远程控制](https://www.ggwp.net.cn/article/dockercentos7azdockerbsyidealj)
+12. [ThingsBorad本地编译遇到的坑](./tech_thingboard_keng/readme.md)
+13. [docker安装hive遇到的坑](./tech_docker_hive/readme.md)
