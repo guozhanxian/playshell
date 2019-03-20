@@ -39,3 +39,4 @@
 11. [CentOS7下Docker开启远程控制](https://www.ggwp.net.cn/article/dockercentos7azdockerbsyidealj)
 12. [ThingsBorad本地编译遇到的坑](./tech_thingboard_keng/readme.md)
 13. [docker安装hive遇到的坑](./tech_docker_hive/readme.md)
+14. [Python去除文本文件第一行](./tech_python_delete_first_line/readme.md)
