@@ -40,3 +40,4 @@
 12. [ThingsBorad本地编译遇到的坑](./tech_thingboard_keng/readme.md)
 13. [docker安装hive遇到的坑](./tech_docker_hive/readme.md)
 14. [Python去除文本文件第一行](./tech_python_delete_first_line/readme.md)
+15. [VSCode中使用Docker工具发布SpringBoot镜像](./tech_vscode_docker_plugin/readme.md)
