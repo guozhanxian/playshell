@@ -43,4 +43,4 @@
 15. [VSCode中使用Docker工具发布SpringBoot镜像](./tech_vscode_docker_plugin/readme.md)
 16. [物联网网关数据传输原理](./tech_iot_gateway/readme.md)
 17. [报表系统CBoard探索](./tech_cboard_checklist/readme.md)
-18. [报表系统CBoard-v探索](./tech_cboardv_deepin/readme)
+18. [报表系统CBoard-v探索](./tech_cboardv_deepin/readme.md)
