@@ -24,3 +24,27 @@ if (styleOption.bar) {
  if (styleOption.bar.minHeight !== '') seriesItem.barMinHeight = styleOption.bar.minHeight;
 }
 ```
+8. 堆叠柱状图，默认是不支持的。修改components/widgets/ChartContent.vue文件，将原来的第372行的程序拿到下面，放到对stackbar判断之后进行。代码片段如下：
+```java
+//------tmp end-----
+let seriesItem = {
+   type: values[j].series_type,
+   name: name,
+   barMaxWidth: 40,
+   data: []
+};
+if (values[j].series_type.indexOf('stackbar') !== -1) {
+   seriesItem.stack = '总量';
+}
+//------ tmp：有些 series_type 为 percentbar，将其转为 bar ------            
+// if (values[j].series_type.indexOf('bar') !== -1) values[j].series_type = 'bar';
+if (values[j].series_type.indexOf('bar') !== -1) {
+ seriesItem.type = 'bar';
+}
+
+//加入代码，处理堆叠线和面积折线支持。   添加人：蝈蝈<guozhanxian@gmail.com>
+if (values[j].series_type.indexOf('arealine') !== -1 || values[j].series_type.indexOf('stackline') !== -1) {
+ seriesItem.type = 'line';
+ seriesItem.areaStyle = {};
+}
+```
