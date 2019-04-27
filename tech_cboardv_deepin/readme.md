@@ -48,3 +48,24 @@ if (values[j].series_type.indexOf('arealine') !== -1 || values[j].series_type.in
  seriesItem.areaStyle = {};
 }
 ```
+9. 加入对百分比柱状图的支持。修改components/widgets/ChartContent.vue第382行代码，加入对百分比柱状图percentbar的判断支持。代码片段如下：
+```java
+//------tmp end-----
+let seriesItem = {
+  type: values[j].series_type,
+  name: name,
+  barMaxWidth: 40,
+  data: []
+};
+//加入堆叠柱状图，判断类型，加入新属性stack。添加人：蝈蝈<guozhanxian@gmail.com>
+//加入百分比柱状图的支持，判断是否有percentbar类型，如果有加入支持。蝈蝈<guozhanxian@gmail.com>
+if (values[j].series_type.indexOf('stackbar') !== -1 || values[j].series_type.indexOf('percentbar') !== -1) {
+  seriesItem.stack = '总量';
+  seriesItem.barMaxWidth = 40 * groups.length;
+}
+//------ tmp：有些 series_type 为 percentbar，将其转为 bar ------            
+// if (values[j].series_type.indexOf('bar') !== -1) values[j].series_type = 'bar';
+if (values[j].series_type.indexOf('bar') !== -1) {
+  seriesItem.type = 'bar';
+}
+```
