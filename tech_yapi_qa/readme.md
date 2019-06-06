@@ -49,3 +49,4 @@ node ./venders/server/app.js
     </dependency>
 ```
 5. 在程序中，编写`Swagger2类`来配置swagger2。[参考代码](./Swagger2.java)
+6. 在Controller中，通过注解`@Api`、`@ApiOperation`等配置接口说明信息，就可以到处给其他平台使用。也可以直接使用swagger-ui来查看接口信息。`swagger-ui`的访问地址是：`http://ip:port/swagger-ui.html`
