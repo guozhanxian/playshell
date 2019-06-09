@@ -45,3 +45,4 @@
 17. [报表系统CBoard探索](./tech_cboard_checklist/readme.md)
 18. [报表系统CBoard-v探索](./tech_cboardv_deepin/readme.md)
 19. [安装yapi工具中遇到的坑，以及和swagger的联合使用](./tech_yapi_qa/readme.md)
+20. [使用微服务网关consul遇到的坑](./tech_consul/readme.md)
