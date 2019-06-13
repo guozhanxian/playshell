@@ -1,0 +1,27 @@
+1. 如果Linux已经安装Docker，那么在安装Kuberntes的时候可能遇到冲突`错误：docker-ce conflicts with 2:docker-1.13.1-96.gitb2f74b2.el7.centos.x86_64`。需要卸载后，再安装Kubernetes.
+```
+# 查看安装过的docker
+yum list installed | grep docker
+# 卸载查询到的docker相关的
+yum remove -y docker-ce.x86_64
+yum remove -y docker-ce-cli.x86_64
+# 删除容器镜像
+rm -rf /var/lib/docker
+# 再次安装Kubernetes
+yum install -y etcd kubernetes
+```
+2. 修改`/etc/sysconfig/docker`配置文件中的OPTIONS部分的内容，修改如下。
+```
+OPTIONS='--selinux-enabled=false --insecure-registry gcr.io'
+```
+3. 修改`/etc/kubernetes/apiserver`配置文件中的配置，把--admission_control参数中的`ServiceAccound`参数删除。
+4. 按顺序启动所有的服务。
+```
+systemctl start etcd
+systemctl start docker
+systemctl start kube-apiserver
+systemctl start kube-controller-manager
+systemctl start kube-scheduler
+systemctl start kubelet
+systemctl start kube-proxy
+```
