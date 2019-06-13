@@ -49,3 +49,14 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: "123456"
 ```
+部署这个yml到k8s，通过命令查看结果。
+```
+# 部署
+kubectl create -f mysql-rc.yaml
+#查看刚刚创建的rc
+kubectl get rc
+# 查看创建的Pod
+kubectl get pods
+# 查看docker运行的程序
+docker ps | grep mysql
+```
