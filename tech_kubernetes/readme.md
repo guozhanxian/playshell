@@ -25,3 +25,27 @@ systemctl start kube-scheduler
 systemctl start kubelet
 systemctl start kube-proxy
 ```
+5. 创建一个`mysql-rc.yaml`文件，内容如下。
+```yml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "123456"
+```
