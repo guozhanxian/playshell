@@ -60,3 +60,13 @@ kubectl get pods
 # 查看docker运行的程序
 docker ps | grep mysql
 ```
+6. 运行pod，pod不能成功启动。出现`open /etc/docker/certs.d/registry.access.redhat.com/redhat-ca.crt: no such file or directory`的解决方法。
+```
+# 方法一
+yum install *rhsm*
+
+#方法二
+ wget http://mirror.centos.org/centos/7/os/x86_64/Packages/python-rhsm-certificates-1.19.10-1.el7_4.x86_64.rpm
+ rpm2cpio python-rhsm-certificates-1.19.10-1.el7_4.x86_64.rpm | cpio -iv --to-stdout ./etc/rhsm/ca/redhat-uep.pem | tee /etc/rhsm/ca/redhat-uep.pem
+docker pull registry.access.redhat.com/rhel7/pod-infrastructure:latest
+```
