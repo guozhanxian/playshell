@@ -13,3 +13,10 @@ run:
   # 可添加 -d 参数将微服务放到后台运行
 	docker run -p 50051:50051 consignment-service
 ```
+2. 当时使用`go get -u`安装包的时候，会出现对于`golang.org`下的包无法下载的网络问题。对于被墙的问题，一般两种解决方法，使用代理。现在golang提供了代理参数。使用网站[https://goproxy.io/](https://goproxy.io/)可以设置代理。
+```
+# Enable the go modules feature
+export GO111MODULE=on
+# Set the GOPROXY environment variable
+export GOPROXY=https://goproxy.io
+```
