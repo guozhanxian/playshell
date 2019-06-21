@@ -20,3 +20,28 @@ export GO111MODULE=on
 # Set the GOPROXY environment variable
 export GOPROXY=https://goproxy.io
 ```
+
+3. 我的`/etc/profile`中的PATH设置。
+```
+export JAVA_HOME=/usr/local/java/jdk1.8.0_211
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+
+export NODE_HOME=/usr/src/node-v12.3.1
+export PATH=$PATH:$NODE_HOME/bin
+export NODE_PATH=$NODE_HOME/lib/node_modules
+
+export PATH=$PATH:/root
+
+export GOROOT=/opt/app/go
+export GOBIN=$GOROOT/bin
+export PATH=$PATH:$GOBIN
+export GOPATH=/root/go
+export PATH=$PATH:$GOPATH/bin
+export GO112MODULE=on
+export GOPROXY=https://goproxy.io
+
+export SPRING_HOME=/root/spring-2.2.0-cli
+export PATH=$SPRING_HOME/bin:$PATH
+```
