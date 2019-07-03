@@ -1,0 +1,105 @@
+{
+  "name": "my_app",
+  "type": "flogo:app",
+  "version": "0.0.1",
+  "description": "My flogo application description",
+  "appModel": "1.1.0",
+  "imports": [
+    "github.com/project-flogo/flow",
+    "github.com/project-flogo/contrib/activity/log",
+    "github.com/project-flogo/contrib/function/string",
+    "github.com/project-flogo/contrib/trigger/rest",
+    "github.com/project-flogo/contrib/activity/actreturn"
+  ],
+  "triggers": [
+    {
+      "id": "my_rest_trigger",
+      "ref": "#rest",
+      "settings": {
+        "port": "8888"
+      },
+      "handlers": [
+        {
+          "settings": {
+            "method": "GET",
+            "path": "/test/:val"
+          },
+          "actions": [
+            {
+              "ref": "#flow",
+              "settings": {
+                "flowURI": "res://flow:simple_flow"
+              },
+              "input": {
+                "in": "=$.pathParams.val"
+              },
+              "output": {
+                "code": "=$.code",
+                "data": "=$.message"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "flow:simple_flow",
+      "data": {
+        "name": "simple_flow",
+        "metadata": {
+          "input": [
+            {
+              "name": "in",
+              "type": "string",
+              "value": "test"
+            }
+          ],
+          "output": [
+            {
+              "name": "out",
+              "type": "string"
+            }
+          ]
+        },
+        "tasks": [
+          {
+            "id": "log",
+            "name": "Log Message",
+            "activity": {
+              "ref": "#log",
+              "input": {
+                "message": "=string.concat(\"Hello，你好蝈蝈\",$flow.in)",
+                "addDetails": "false"
+              }
+            }
+          },
+          {
+            "id": "return",
+            "name": "Return",
+            "activity": {
+              "ref": "github.com/project-flogo/contrib/activity/actreturn",
+              "settings": {
+                "mappings": {
+                  "code": 200,
+                  "message": {
+                    "studName": "蝈蝈",
+                    "studBirth": "1991-10-10",
+                    "studSex": "男"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "links": [
+          {
+            "from": "log",
+            "to": "return"
+          }
+        ]
+      }
+    }
+  ]
+}
