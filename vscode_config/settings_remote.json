@@ -154,7 +154,7 @@
   "go.gocodeAutoBuild": false,
   "files.autoSave": "onFocusChange",
   "vsicons.projectDetection.autoReload": true,
-  "sync.gist": "8d62b567de2ffdf4cab2a24512809d1d",
+  "sync.gist": "xxxxxx",
   "eslint.validate": [
     "javascript",
     "javascriptreact",
