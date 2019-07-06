@@ -94,7 +94,7 @@ http {
 
 ```
 6. 参考文章
-> [centos7.5 安装流媒体服务器(nginx+rtmp，rtsp转rtmp，rtsp转m3u8) 直播海康摄像头视频](https://blog.csdn.net/tjjingpan/article/details/89639433)
-> [Nginx-rtmp+ FFmpeg +Docker + vue.js 直播系统搭建](https://www.linuxidc.com/Linux/2019-06/158950.htm)
-> [centos+nginx将大华rtsp视频流转成rtmp，并在web浏览器上直播](https://blog.csdn.net/cslp517/article/details/89383080)
-> [RTSP转RTMP,Nginx和nginx-rtmp-module配置直播推流服务器](https://blog.csdn.net/pnoter/article/details/90574313)
+> + [centos7.5 安装流媒体服务器(nginx+rtmp，rtsp转rtmp，rtsp转m3u8) 直播海康摄像头视频](https://blog.csdn.net/tjjingpan/article/details/89639433)
+> + [Nginx-rtmp+ FFmpeg +Docker + vue.js 直播系统搭建](https://www.linuxidc.com/Linux/2019-06/158950.htm)
+> + [centos+nginx将大华rtsp视频流转成rtmp，并在web浏览器上直播](https://blog.csdn.net/cslp517/article/details/89383080)
+> + [RTSP转RTMP,Nginx和nginx-rtmp-module配置直播推流服务器](https://blog.csdn.net/pnoter/article/details/90574313)
