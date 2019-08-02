@@ -50,3 +50,4 @@
 22. [Centos7使用Kubernetes遇到的坑](./tech_kubernetes/readme.md)
 23. [开源Servless/IOT工具Flogo的学习](./tech_flogo/readme.md)
 24. [VSCode开发Golang环境的问题](./tech_golang_vscode/readme.md)
+25. [调用SonarQube WebApi遇到的坑](./tech_sonarqube_api/readme.md)
