@@ -1,0 +1,226 @@
+```json
+{
+  "editor.fontSize": 18,
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "\"Fira Code\",Consolas, 'Courier New', monospace",
+  "maven.executable.path": "D:\\apache-maven-3.6.0\\bin\\mvn",
+  "java.configuration.maven.userSettings": "D:\\apache-maven-3.6.0\\conf\\settings.xml",
+  "maven.terminal.customEnv": [
+    {
+      "environmentVariable": "JAVA_HOME",
+      "value": "D:\\Java\\jdk1.8.0_144"
+    }
+  ],
+  "workbench.iconTheme": "vscode-icons",
+  "editor.renderIndentGuides": false,
+  "topper.customTemplateParameters": [
+    {
+      "personalProfile": {
+        "author": "果占先",
+        "website": "https://guozhanxian.github.io/",
+        "copyright": "Ralph",
+        "license": "Apache2",
+        "email": "guozhanxian@gmail.com"
+      }
+    },
+    {
+      "officeProfile": {
+        "author": "果占先",
+        "department": "Tech Development",
+        "email": "guozhanxian@gmail.com"
+      }
+    }
+  ],
+  "topper.headerTemplates": [
+    {
+      "defaultCStyled": {
+        "headerBegin": "/**",
+        "headerPrefix": "*",
+        "headerEnd": "*/",
+        "template": [
+          "${headerBegin}",
+          "${headerPrefix} ${fileName}",
+          "${headerPrefix} @author ${author}",
+          "${headerPrefix} @description ${description}",
+          "${headerPrefix} @created ${createdDate}",
+          "${headerPrefix} @copyright ${copyright}",
+          "${headerPrefix} @last-modified ${lastModifiedDate}",
+          "${headerEnd}"
+        ]
+      }
+    },
+    {
+      "python": {
+        "headerBegin": "# -*- coding: utf-8 -*-",
+        "headerPrefix": "#",
+        "headerEnd": "#",
+        "template": [
+          "${headerBegin}",
+          "${headerPrefix} ${fileName}",
+          "${headerPrefix} @author ${author}",
+          "${headerPrefix} @description ${description}",
+          "${headerPrefix} @created ${createdDate}",
+          "${headerPrefix} @last-modified ${lastModifiedDate}",
+          "${headerEnd}"
+        ]
+      }
+    }
+  ],
+  "kanban": {
+    "openOnStartup": false
+  },
+  "todo-tree.tags": [
+    "TODO",
+    "FIXME",
+    "HELP"
+  ],
+  "todo-tree.defaultHighlight": {
+    "icon": "alert",
+    "type": "text",
+    "foreground": "#FF0097",
+    "background": "#FFFBF0",
+    "opacity": 100,
+    "iconColour": "#FF0097"
+  },
+  "todo-tree.customHighlight": {
+    "TODO": {
+      "icon": "bell",
+      "opacity": 75
+    },
+    "FIXME": {
+      "icon": "bug",
+      "foreground": "#0C8918",
+      "background": "#FFFBF0",
+      "iconColour": "#40DE5A",
+      "opacity": 75
+    },
+    "HELP": {
+      "icon": "paintcan",
+      "foreground": "#25F8CB",
+      "background": "#FFFBF0",
+      "iconColour": "#FF7500",
+      "opacity": 75
+    }
+  },
+  "git.autofetch": true,
+  "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"C:\\Users\\DELL\\.vscode\\extensions\\gabrielbb.vscode-lombok-0.9.8/server/lombok.jar\"",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "python.jediEnabled": false,
+  "editor.suggestSelection": "first",
+  // "vs-kubernetes": {
+  //   "vs-kubernetes.draft-path": "C:\\Users\\Administrator\\.vs-kubernetes\\tools\\draft\\windows-amd64\\draft.exe",
+  //   "vs-kubernetes.kubectl-path": "C:\\Users\\Administrator\\.vs-kubernetes\\tools\\kubectl\\kubectl.exe",
+  //   "vs-kubernetes.minikube-path": "C:\\Users\\Administrator\\.vs-kubernetes\\tools\\minikube\\windows-amd64\\minikube.exe"
+  // },
+  "go.buildOnSave": "workspace",
+  "go.lintOnSave": "package",
+  "go.vetOnSave": "package",
+  "go.buildTags": "",
+  "go.buildFlags": [],
+  "go.lintFlags": [],
+  "go.vetFlags": [],
+  "go.coverOnSave": false,
+  "go.useCodeSnippetsOnFunctionSuggest": false,
+  "go.formatOnSave": true,
+  "go.formatTool": "goreturns",
+  "go.goroot": "D:/Go",
+  "go.gopath": "E:/mycode/go",
+  "go.gocodeAutoBuild": false,
+  "files.autoSave": "onFocusChange",
+  "sync.gist": "8d62b567de2ffdf4cab2a24512809d1d",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    "html"
+  ],
+  "eslint.options": {
+    "plugins": [
+      "html"
+    ]
+  },
+  "eslint.autoFixOnSave": true,
+  "emmet.syntaxProfiles": {
+    "vue-html": "html",
+    "vue": "html"
+  },
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "vetur.format.defaultFormatter.html": "prettier",
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "prettier.tabWidth": 2,
+  "prettier.eslintIntegration": true, //让prettier使用eslint的代码格式进行校验
+  "prettier.semi": false, //去掉代码结尾的分号
+  "prettier.singleQuote": true, //使用带引号替代双引号
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true, //让函数(名)和后面的括号之间加个空格
+  "vetur.format.defaultFormatter.html": "js-beautify-html", //格式化.vue中html
+  "vetur.format.defaultFormatter.js": "vscode-typescript", //让vue中的js按编辑器自带的ts格式进行格式化
+  "spring.initializr.defaultLanguage": "Java",
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "yapf",
+  "terminal.integrated.rendererType": "dom",
+  "python.pythonPath": "C:/Python27",
+  "python.autoComplete.extraPaths": [
+    "C:/Python27",
+    "C:/Python27/Lib",
+    "C:/Python27/Lib/site-packages",
+    "C:/Python27/DLLs"
+  ],
+  "docker.host": "http://172.17.0.42:2375",
+  "search.followSymlinks": false,
+  "go.autocompleteUnimportedPackages": true,
+  "vscode_custom_css.imports": [
+    "file:///C:/Users/DELL/synthwave84.css"
+  ],
+  "better-comments.multilineComments": true,
+  "better-comments.highlightPlainText": false,
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    }
+  ],
+  "kafka.hosts": "data1.com:9092,data2.com:9092,data3.com:9092",
+  "svn.path": "C:\\Program Files\\TortoiseSVN",
+  "debug.console.fontSize": 17,
+  "workbench.colorTheme": "Noctis Lux",
+  "git.ignoreLegacyWarning": true,
+  "vsicons.dontShowNewVersionMessage": true
+}
+```

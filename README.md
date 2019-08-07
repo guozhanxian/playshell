@@ -51,3 +51,8 @@
 23. [开源Servless/IOT工具Flogo的学习](./tech_flogo/readme.md)
 24. [VSCode开发Golang环境的问题](./tech_golang_vscode/readme.md)
 25. [调用SonarQube WebApi遇到的坑](./tech_sonarqube_api/readme.md)
+
+## 我的备份
+1. [Linux上的/etc/profile文件](./backup_linux_profile/readme.md)
+2. [VSCode远程开发settings文件](./backup_vscode_remote_setting/readme.md)
+3. [VSCode本地开发settings文件](./backup_vscode_local_setting/readme.md)
