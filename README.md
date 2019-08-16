@@ -51,6 +51,7 @@
 23. [开源Servless/IOT工具Flogo的学习](./tech_flogo/readme.md)
 24. [VSCode开发Golang环境的问题](./tech_golang_vscode/readme.md)
 25. [调用SonarQube WebApi遇到的坑](./tech_sonarqube_api/readme.md)
+26. [Golang调用动态链接库dll，so入门](https://studygolang.com/topics/6025/comment/17780)
 
 ## 我的备份
 1. [Linux上的/etc/profile文件](./backup_linux_profile/readme.md)
