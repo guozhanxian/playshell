@@ -1,0 +1,303 @@
+[
+    {
+        "id": "9d0c87fc.700718",
+        "type": "tab",
+        "label": "iot test",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "dd1fd3bf.06c91",
+        "type": "inject",
+        "z": "9d0c87fc.700718",
+        "name": "初始启动，加载全局CRC",
+        "topic": "startup",
+        "payload": "crc16",
+        "payloadType": "global",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "x": 144.5,
+        "y": 125,
+        "wires": [
+            [
+                "6e466bd7.a34a24"
+            ]
+        ]
+    },
+    {
+        "id": "6e466bd7.a34a24",
+        "type": "http request",
+        "z": "9d0c87fc.700718",
+        "name": "读取服务器配置信息",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "http://11.11.1.1:3030/config",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 430.5,
+        "y": 125,
+        "wires": [
+            [
+                "86cad379.78562",
+                "cbbc44b4.7b2288"
+            ]
+        ]
+    },
+    {
+        "id": "86cad379.78562",
+        "type": "debug",
+        "z": "9d0c87fc.700718",
+        "name": "打印日志信息",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 809.5,
+        "y": 124,
+        "wires": []
+    },
+    {
+        "id": "cbbc44b4.7b2288",
+        "type": "json",
+        "z": "9d0c87fc.700718",
+        "name": "配置信息转换成JSON对象",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 729.5,
+        "y": 202,
+        "wires": [
+            [
+                "ff5e7420.6a4978"
+            ]
+        ]
+    },
+    {
+        "id": "ff5e7420.6a4978",
+        "type": "function",
+        "z": "9d0c87fc.700718",
+        "name": "把配置json对象存储到flow中",
+        "func": "\nif(msg && msg.payload)\n{\n    flow.set(\"config\",msg.payload);\n    flow.set(\"configtimer\",[]);\n    flow.set(\"ipmaps\",{});\n    flow.set(\"msgmaps\",{});\n    msg.payload = \"配置信息已经保存在flow中\";\n}else{\n    msg.payload = \"没有读取到配置信息\";\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1026.5,
+        "y": 204,
+        "wires": [
+            [
+                "7a61e115.76c57",
+                "abfb2ecb.f0faa"
+            ]
+        ]
+    },
+    {
+        "id": "7a61e115.76c57",
+        "type": "debug",
+        "z": "9d0c87fc.700718",
+        "name": "打印配置信息保存日志",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1338.5,
+        "y": 204,
+        "wires": []
+    },
+    {
+        "id": "738aad88.9dc554",
+        "type": "array-loop",
+        "z": "9d0c87fc.700718",
+        "name": "循环配置信息数组",
+        "key": "al738aad889dc554",
+        "keyType": "msg",
+        "reset": false,
+        "resetValue": "value-null",
+        "array": "config",
+        "arrayType": "flow",
+        "x": 523.5,
+        "y": 360,
+        "wires": [
+            [
+                "f12704c.ff8fef8"
+            ],
+            [
+                "e6a40947.cfba18"
+            ]
+        ]
+    },
+    {
+        "id": "f12704c.ff8fef8",
+        "type": "debug",
+        "z": "9d0c87fc.700718",
+        "name": "配置信息完成",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "\"循环已经完成\"",
+        "targetType": "jsonata",
+        "x": 816.5,
+        "y": 356,
+        "wires": []
+    },
+    {
+        "id": "e6a40947.cfba18",
+        "type": "function",
+        "z": "9d0c87fc.700718",
+        "name": "循环配置信息",
+        "func": "return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 737.5,
+        "y": 534,
+        "wires": [
+            [
+                "738aad88.9dc554",
+                "d6bfb820.db1aa8"
+            ]
+        ]
+    },
+    {
+        "id": "9b26c5f6.2252b8",
+        "type": "debug",
+        "z": "9d0c87fc.700718",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1267.5,
+        "y": 509,
+        "wires": []
+    },
+    {
+        "id": "d6bfb820.db1aa8",
+        "type": "function",
+        "z": "9d0c87fc.700718",
+        "name": "设置定时器采集",
+        "func": "var timernum = parseInt(msg.payload.up_interval);\nvar hoststr = msg.payload.ip_addr;\nflow.get(\"msgmaps\")[hoststr] = msg;\nvar timercode = setInterval(function(){\n    var msg = flow.get(hoststr);\n    var obj = flow.get(\"ipmaps\");\n    if(obj[hoststr]){\n        msg = obj[hoststr];    \n        msg.host = hoststr;\n        msg.port = obj.port;\n        var ddd = new Buffer([0xaa,0xbb,0x22,0x55]);\n        msg.payload = ddd;\n    }\n    node.send(msg);\n},timernum);\nflow.get(\"configtimer\").push(timercode);\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1002.5,
+        "y": 534,
+        "wires": [
+            [
+                "9b26c5f6.2252b8",
+                "9a017af2.3615f8"
+            ]
+        ]
+    },
+    {
+        "id": "14a9986e.3c4f78",
+        "type": "function",
+        "z": "9d0c87fc.700718",
+        "name": "保存TCP信息",
+        "func": "var ipstr = msg.ip.split(\":\");\nvar ipaddr = ipstr[ipstr.length-1];\nvar obj = flow.get(\"ipmaps\");\nobj[ipaddr]=msg;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 471.5,
+        "y": 678,
+        "wires": [
+            [
+                "225e72ef.5046fe"
+            ]
+        ]
+    },
+    {
+        "id": "225e72ef.5046fe",
+        "type": "debug",
+        "z": "9d0c87fc.700718",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 702.5,
+        "y": 677,
+        "wires": []
+    },
+    {
+        "id": "312df474.8e7cfc",
+        "type": "tcp in",
+        "z": "9d0c87fc.700718",
+        "name": "TCP服务器",
+        "server": "server",
+        "host": "11.11.1.2",
+        "port": "6688",
+        "datamode": "stream",
+        "datatype": "buffer",
+        "newline": "\\n",
+        "topic": "wc",
+        "base64": false,
+        "x": 237.5,
+        "y": 678,
+        "wires": [
+            [
+                "14a9986e.3c4f78"
+            ]
+        ]
+    },
+    {
+        "id": "abfb2ecb.f0faa",
+        "type": "trigger",
+        "z": "9d0c87fc.700718",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 248.5,
+        "y": 356,
+        "wires": [
+            [
+                "738aad88.9dc554"
+            ]
+        ]
+    },
+    {
+        "id": "bbe7dce0.5b7e8",
+        "type": "tcp out",
+        "z": "9d0c87fc.700718",
+        "host": "",
+        "port": "",
+        "beserver": "reply",
+        "base64": false,
+        "end": false,
+        "name": "",
+        "x": 1351.5,
+        "y": 644,
+        "wires": []
+    },
+    {
+        "id": "9a017af2.3615f8",
+        "type": "function",
+        "z": "9d0c87fc.700718",
+        "name": "准备采集数据命令（modbus协议）",
+        "func": "var obj = flow.get(\"msgmaps\")[msg.host];\nvar arr = new Buffer([parseInt(\"0x\"+obj.payload.equ_addr),parseInt(\"0x\"+obj.payload.opt_code),parseInt(\"0x\"+obj.payload.high_reg),parseInt(\"0x\"+obj.payload.low_reg),parseInt(\"0x\"+obj.payload.high_num),parseInt(\"0x\"+obj.payload.low_num),0x00,0x00]);\nvar myfunc = global.get('crc16');\nvar sss = myfunc([parseInt(\"0x\"+obj.payload.equ_addr),parseInt(\"0x\"+obj.payload.opt_code),parseInt(\"0x\"+obj.payload.high_reg),parseInt(\"0x\"+obj.payload.low_reg),parseInt(\"0x\"+obj.payload.high_num),parseInt(\"0x\"+obj.payload.low_num)]);\narr[6] = parseInt(\"0x\"+sss.toString(16).slice(-4,-2));\narr[7] = parseInt(\"0x\"+sss.toString(16).slice(-2));\nmsg.payload = arr;\nreturn msg;g;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1096.5,
+        "y": 647,
+        "wires": [
+            [
+                "bbe7dce0.5b7e8"
+            ]
+        ]
+    }
+]

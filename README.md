@@ -57,3 +57,4 @@
 1. [Linux上的/etc/profile文件](./backup_linux_profile/readme.md)
 2. [VSCode远程开发settings文件](./backup_vscode_remote_setting/readme.md)
 3. [VSCode本地开发settings文件](./backup_vscode_local_setting/readme.md)
+4. [Node-Red现场数据采集配置示例](./backup_nodered_edge_collect/readme.md)
